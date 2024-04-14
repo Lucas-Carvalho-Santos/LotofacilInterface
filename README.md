@@ -1,5 +1,6 @@
 
-Lotofácil Interface em Java
+## Lotofácil Interface em Java
+
 Este é um simples jogo de loteria desenvolvido em Java com uma interface gráfica. O projeto permite que o usuário faça três tipos diferentes de apostas:
 
 Apostar em um número entre 1 e 100;
