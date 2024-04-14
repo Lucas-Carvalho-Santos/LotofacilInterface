@@ -15,10 +15,10 @@ Apostar de A até Z: O usuário pode apostar em uma letra de A a Z. Se acertar a
 
 Apostar entre par ou ímpar: O usuário pode apostar em um número e escolher se ele é par ou ímpar. Se acertar, ganha R$100 reais.
 
-#Requisitos  
+# Requisitos  
 Para executar o projeto, é necessário ter o Java Development Kit (JDK) instalado.
 
-#Como executar  
+# Como executar  
 Clone o repositório ou baixe o arquivo LotofacilInterface.java.  
 Abra o terminal ou prompt de comando.  
 Navegue até o diretório onde o arquivo LotofacilInterface.java está localizado.  
