@@ -25,6 +25,8 @@ Navegue até o diretório onde o arquivo LotofacilInterface.java está localizad
 Compile o arquivo Java usando o comando:  
 Copy code  
 javac LotofacilInterface.java  
+
+# 
 Execute o arquivo compilado com o comando:  
 Copy code  
 java LotofacilInterface  
