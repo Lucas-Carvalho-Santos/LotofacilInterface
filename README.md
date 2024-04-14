@@ -33,3 +33,6 @@ java LotofacilInterface
 Interface Gráfica  
 A interface gráfica foi construída utilizando a biblioteca Swing do Java, oferecendo uma experiência amigável e intuitiva ao usuário.  
 
+# Exemplo
+
+![LotofacilComInterface](https://github.com/Lucas-Carvalho-Santos/LotofacilInterface/assets/144248283/4399cb0e-705d-4798-b41d-61ac356d73d8)
