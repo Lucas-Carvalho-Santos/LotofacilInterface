@@ -3,9 +3,9 @@
 
 Este é um simples jogo de loteria desenvolvido em Java com uma interface gráfica. O projeto permite que o usuário faça três tipos diferentes de apostas:
 
-Apostar em um número entre 1 e 100;
-Apostar em uma letra de A a Z;
-Apostar em um número par ou ímpar.
+Apostar em um número entre 1 e 100;  
+Apostar em uma letra de A a Z;  
+Apostar em um número par ou ímpar.  
 Quando o usuário faz uma aposta, o programa realiza um sorteio aleatório e verifica se a aposta do usuário é correspondente ao resultado do sorteio. Dependendo do tipo de aposta e do resultado, o usuário pode ganhar uma premiação em dinheiro.
 
 Funcionalidades
