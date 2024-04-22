@@ -4,79 +4,85 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 import javax.swing.*;
 
-public class LotofacilInterface extends JFrame {
-    // Atributos
-    private JPanel painel = new JPanel();
-    private JButton jButtonAposta1 = new JButton("Apostar de 1 a 100");
-    private JButton jButtonAposta2 = new JButton("Apostar de A até Z");
-    private JButton jButtonAposta3 = new JButton("Apostar entre par ou ímpar");
+public class LotofacilInterface extends JFrame{
+    // Atributos e interfaces
 
-    // Construtor
-    Random random = new Random();
-    int numero_sorteado = -1;
+    private JPanel painel = new JPanel(); // Estanciando um novo painel principal
+    private JButton JbutonAposta1 = new JButton("Aposta de 0 a 100"); // botões do painel
+    private JButton JbutonAposta2 = new JButton("Aposta de A a Z"); // botões do painel
+    private JButton JbutonAposta3 = new JButton("Aposta Par e Impar"); // botões do painel
 
-    public LotofacilInterface() {
-        // Configurações do frame
-        this.setTitle("Lotofácil");
-        this.setSize(400, 200);
+    Random random = new Random(); // para gerar um número aleátorio
+    int num_sorteado = -1; // para a escolha da modalidade
+
+    // configurando a interface
+    public LotofacilInterface(){
+        this.setTitle("Loto fácil"); // definindo o titulo do painel
+        this.setSize(400, 200); // tamanho do painel
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setLocationRelativeTo(null); // Centralizar janela
+        this.setLocationRelativeTo(null); // centraliza o painel
+        this.setResizable(false); // não permite ao usuário redimensionar o painl
 
-        // Configurações do painel
-        painel.setLayout(new FlowLayout(FlowLayout.CENTER, 100, 20));
-        painel.setBackground(new Color(255, 255, 255));
+        // configurando o painel
+        painel.setLayout(new FlowLayout(FlowLayout.CENTER, 10,20));
+        painel.setBackground(new Color(125, 158, 255)); // definindo a cor
 
-        // Definindo tamanhos padrão para os botões
-        Dimension buttonSize = new Dimension(160, 30);
-        jButtonAposta1.setPreferredSize(buttonSize);
-        jButtonAposta2.setPreferredSize(buttonSize);
-        jButtonAposta3.setPreferredSize(buttonSize);
+        // configurando o botões
+        Dimension buttonSize = new Dimension(160, 30); // cria um butão padrão
+        JbutonAposta1.setPreferredSize(buttonSize); // copia as dimensões do butão padrão
+        JbutonAposta2.setPreferredSize(buttonSize); // copia as dimensões do butão padrão
+        JbutonAposta3.setPreferredSize(buttonSize); // copia as dimensões do butão padrão
 
-        // Adiciona listeners aos botões
-        jButtonAposta1.addActionListener(new ActionListener() {
+        // comportamento de escuta do botões
+        JbutonAposta1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 apostarNumero();
             }
         });
 
-        jButtonAposta2.addActionListener(new ActionListener() {
+        JbutonAposta2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 apostarLetra();
             }
         });
 
-        jButtonAposta3.addActionListener(new ActionListener() {
+        JbutonAposta3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 apostarParImpar();
             }
         });
 
-        // Adiciona componentes ao painel
-        painel.add(jButtonAposta1);
-        painel.add(jButtonAposta2);
-        painel.add(jButtonAposta3);
+        // adiciona buitões ao painel principal
+        painel.add(JbutonAposta1);
+        painel.add(JbutonAposta2);
+        painel.add(JbutonAposta3);
 
         this.getContentPane().add(painel);
 
-        // Exibe janela
+        // exibindo a janela
         this.setVisible(true);
     }
 
-    // Método para apostar em um número de 0 a 100
+    // Método para exibir caixa de diálogo para perguntar um número
+    private String exibirModalPergunta(String titulo, String mensagem) {
+        return JOptionPane.showInputDialog(null, mensagem, titulo, JOptionPane.QUESTION_MESSAGE);
+    }
+
+    // criando os metodos
     private void apostarNumero() {
         try {
             String aposta = exibirModalPergunta("Faça sua aposta!","Digite um número de 1 a 100:");
-            numero_sorteado = random.nextInt(101);
+            num_sorteado = random.nextInt(101);
             int numero = Integer.parseInt(aposta);
             if (numero <= 0 || numero > 100) {
                 JOptionPane.showMessageDialog(null, "Aposta Inválida");
-            } else if (numero == numero_sorteado) {
+            } else if (numero == num_sorteado) {
                 JOptionPane.showMessageDialog(null, "Parabéns! Você ganhou R$1000 reais.");
             } else {
-                JOptionPane.showMessageDialog(null, "Não foi dessa vez. O número sorteado foi: " + numero_sorteado);
+                JOptionPane.showMessageDialog(null, "Não foi dessa vez. O número sorteado foi: " + num_sorteado);
             }
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Entrada Inválida. Digite um número válido.");
@@ -98,14 +104,6 @@ public class LotofacilInterface extends JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Aposta Inválida.");
         }
-    }
-
-    private String exibirModalPergunta(String titulo, String pergunta)
-    {
-        final ImageIcon icon = new ImageIcon("src/images/coin.png");
-        Image image2 = icon.getImage().getScaledInstance(70,70,0);
-        var retorno = JOptionPane.showInputDialog(null,pergunta,titulo, JOptionPane.PLAIN_MESSAGE, new ImageIcon(image2),  null, "");
-        return retorno != null ? retorno.toString() : "";
     }
 
     // Método para apostar em número par ou ímpar
